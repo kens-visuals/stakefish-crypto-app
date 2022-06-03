@@ -107,7 +107,7 @@ export default function Coin({ coin }) {
           <Image src={coin.image.large} alt="" width={55} height={55} />
         </div>
 
-        <div className="mt-4 lg:mt-0 lg:px-5">
+        <div className="mt-4 md:px-5 lg:mt-0">
           <SecondaryList coin={coin} />
         </div>
 
