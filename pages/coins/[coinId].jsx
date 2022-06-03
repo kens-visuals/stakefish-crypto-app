@@ -75,41 +75,43 @@ export default function Coin({ coin }) {
   return (
     <Main>
       <Container>
-        <div className="mb-4 flex items-center gap-2 pl-5">
+        <div className="mb-4 flex items-center gap-2 pl-5 lg:mb-0">
           <h1 className="text-4xl font-bold text-primary">{coin.name}</h1>
           <Image src={coin.image.large} alt="" width={55} height={55} />
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 lg:mt-0">
           <SecondaryList coin={coin} />
         </div>
 
         <div className="space-y-4 p-6 text-primary">
-          <div>
-            <h2 className="mb-2 text-4xl">Info</h2>
-            <div className="flex flex-wrap gap-x-4">
-              <p className="text-lg">
-                <span className="font-bold">Country:</span>{' '}
-                {coin.country || 'N/A'}
-              </p>
-              <p className="text-lg">
-                <span className="font-bold">Trust status:</span>{' '}
-                {coin.tickers[0].trust_score || 'N/A'}
-              </p>
-              <p className="text-lg">
-                <span className="font-bold">Founded:</span>{' '}
-                {(coin.genesis_date &&
-                  formatDateToUSFormat(coin.genesis_date)) ||
-                  'N/A'}
-              </p>
+          <div className="space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:space-x-16 lg:space-y-0">
+            <div>
+              <h2 className="mb-2 text-4xl">Info</h2>
+              <div className="flex flex-wrap gap-x-4">
+                <p className="text-lg">
+                  <span className="font-bold">Country:</span>{' '}
+                  {coin.country || 'N/A'}
+                </p>
+                <p className="text-lg">
+                  <span className="font-bold">Trust status:</span>{' '}
+                  {coin.tickers[0].trust_score || 'N/A'}
+                </p>
+                <p className="text-lg">
+                  <span className="font-bold">Founded:</span>{' '}
+                  {(coin.genesis_date &&
+                    formatDateToUSFormat(coin.genesis_date)) ||
+                    'N/A'}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h3 className=" text-4xl">Links</h3>
-            <ul className="flex flex-wrap items-center gap-x-4 gap-y-2 py-4">
-              {linksDisplay}
-            </ul>
+            <div>
+              <h3 className="text-4xl lg:mb-2">Links</h3>
+              <ul className="flex flex-wrap items-center gap-x-4 gap-y-2 py-4 lg:py-0">
+                {linksDisplay}
+              </ul>
+            </div>
           </div>
 
           <div>

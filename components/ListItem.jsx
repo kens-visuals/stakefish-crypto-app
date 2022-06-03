@@ -6,13 +6,13 @@ import SecondaryList from './SecondaryList';
 
 export default function ListItem({ coin }) {
   return (
-    <li className="p-2 px-6">
+    <li className="p-2 px-6 md:px-3">
       <div className="flex items-center gap-2">
         <Image src={coin.image} alt={coin.name} width={18} height={18} />
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <Link href="/coins/[coinId]" as={`/coins/${coin.id}`}>
-            <a className="text-xl font-bold text-primary underline">
+            <a className="text-xl font-bold text-primary underline md:text-2xl">
               {coin.name}
             </a>
           </Link>
