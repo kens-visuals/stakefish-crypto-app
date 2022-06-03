@@ -2,19 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // components
-import SecondaryListItem from './SecondaryListItem';
+import SecondaryList from './SecondaryList';
 
 export default function ListItem({ coin }) {
-  const listItemNames = [
-    { name: 'Current price:' },
-    { name: 'Highest in 24h:', isHighest: true },
-    { name: 'Lowest in 24h:', isLowest: true },
-  ];
-
-  const secondaryListItemsDisplay = listItemNames.map((info) => (
-    <SecondaryListItem key={info.name} coin={coin} info={info} />
-  ));
-
   return (
     <li className="p-2 px-6">
       <div className="flex items-center gap-2">
@@ -31,9 +21,7 @@ export default function ListItem({ coin }) {
         </div>
       </div>
 
-      <ul className="mt-2 space-y-1 rounded-md bg-primary py-4 px-6">
-        {secondaryListItemsDisplay}
-      </ul>
+      <SecondaryList coin={coin} />
     </li>
   );
 }

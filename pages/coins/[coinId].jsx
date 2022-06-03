@@ -13,6 +13,7 @@ import {
 import Main from '../../components/Main';
 import Container from '../../components/Container';
 import LinkItem from '../../components/LinkItem';
+import SecondaryList from '../../components/SecondaryList';
 
 // utils
 import { formatDateToUSFormat } from '../../helpers/utils';
@@ -42,6 +43,8 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Coin({ coin }) {
+  console.log(coin);
+
   const links = [
     {
       name: 'Website',
@@ -77,7 +80,9 @@ export default function Coin({ coin }) {
           <Image src={coin.image.large} alt="" width={55} height={55} />
         </div>
 
-        <div className="h-0.5 w-full bg-secondary" />
+        <div className="mt-4">
+          <SecondaryList coin={coin} />
+        </div>
 
         <div className="space-y-4 p-6 text-primary">
           <div>

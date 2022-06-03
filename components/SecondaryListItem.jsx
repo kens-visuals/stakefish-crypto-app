@@ -27,7 +27,9 @@ export default function SecondaryListItem({ coin, info }) {
         ${info.isHighest && 'text-secondary'}
         ${info.isLowest && 'text-tertiary'}`}
       >
-        {formatNumToUSCurrency(coin.current_price)}
+        {formatNumToUSCurrency(
+          coin.current_price || coin.market_data.current_price.usd
+        )}
       </span>
     </li>
   );
