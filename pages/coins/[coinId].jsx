@@ -18,11 +18,20 @@ import SecondaryList from '../../components/SecondaryList';
 // utils
 import { formatDateToUSFormat } from '../../helpers/utils';
 
+// CoinGecko API
+const CoinGecko = require('coingecko-api');
+
+const CoinGeckoClient = new CoinGecko();
+
 export async function getStaticPaths() {
-  const res = await fetch(
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false'
-  );
-  const coinListData = await res.json();
+  const res = await CoinGeckoClient.coins.markets({
+    vs_currency: 'usd',
+    order: 'market_cap_desc',
+    per_page: 10,
+    page: 1,
+    sparkline: false,
+  });
+  const coinListData = res.data;
   const coinList = coinListData.map((coin) => ({
     params: { coinId: coin.id },
   }));
@@ -34,10 +43,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(
-    `https://api.coingecko.com/api/v3/coins/${params.coinId}`
-  );
-  const coin = await res.json();
+  const res = await CoinGeckoClient.coins.fetch(params.coinId);
+  const coin = res.data;
 
   return { props: { coin } };
 }
@@ -66,8 +73,30 @@ export default function Coin({ coin }) {
     },
   ];
 
+  const infos = [
+    {
+      name: 'Country',
+      url: coin.country || 'N/A',
+    },
+    {
+      name: 'Trust Status',
+      url: coin.tickers[0].trust_score || 'N/A',
+    },
+    {
+      name: 'Founded',
+      url:
+        (coin.genesis_date && formatDateToUSFormat(coin.genesis_date)) || 'N/A',
+    },
+  ];
+
   const linksDisplay = links.map((link) => (
     <LinkItem key={link.name} {...link} />
+  ));
+
+  const infoDisplay = infos.map((info) => (
+    <p key={info.name} className="text-lg">
+      <span className="font-bold">{info.name}:</span> {info.url}
+    </p>
   ));
 
   return (
@@ -85,23 +114,8 @@ export default function Coin({ coin }) {
         <div className="space-y-4 p-6 text-primary">
           <div className="space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:space-x-11 lg:space-y-0">
             <div>
-              <h2 className="mb-2 text-4xl">Info</h2>
-              <div className="flex flex-wrap gap-x-4">
-                <p className="text-lg">
-                  <span className="font-bold">Country:</span>{' '}
-                  {coin.country || 'N/A'}
-                </p>
-                <p className="text-lg">
-                  <span className="font-bold">Trust status:</span>{' '}
-                  {coin.tickers[0].trust_score || 'N/A'}
-                </p>
-                <p className="text-lg">
-                  <span className="font-bold">Founded:</span>{' '}
-                  {(coin.genesis_date &&
-                    formatDateToUSFormat(coin.genesis_date)) ||
-                    'N/A'}
-                </p>
-              </div>
+              <h3 className="mb-2 text-4xl">Info</h3>
+              <div className="flex flex-wrap gap-x-4">{infoDisplay}</div>
             </div>
 
             <div>
