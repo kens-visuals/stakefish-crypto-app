@@ -1,4 +1,4 @@
-export default function Link({ url, icon, name }) {
+export default function LinkItem({ url, icon, name }) {
   return (
     <li>
       <a

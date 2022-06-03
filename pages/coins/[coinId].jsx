@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 
 // assets
@@ -11,7 +12,7 @@ import {
 // components
 import Main from '../../components/Main';
 import Container from '../../components/Container';
-import Link from '../../components/Link';
+import LinkItem from '../../components/LinkItem';
 
 // utils
 import { formatDateToUSFormat } from '../../helpers/utils';
@@ -48,14 +49,14 @@ export default function Coin({ coin }) {
       icon: <GlobeIcon className="w-6" />,
     },
     {
-      name: 'Facebook',
-      url: `https://www.facebook.com/${coin.links.facebook_username}`,
-      icon: <ThumbUpIcon className="w-6" />,
-    },
-    {
       name: 'Twitter',
       url: `https://twitter.com/${coin.links.twitter_screen_name}`,
       icon: <HashtagIcon className="w-6" />,
+    },
+    {
+      name: 'Facebook',
+      url: `https://www.facebook.com/${coin.links.facebook_username}`,
+      icon: <ThumbUpIcon className="w-6" />,
     },
     {
       name: 'GitHub',
@@ -64,34 +65,61 @@ export default function Coin({ coin }) {
     },
   ];
 
-  const linksDisplay = links.map((link) => <Link {...link} />);
+  const linksDisplay = links.map((link) => (
+    <LinkItem key={link.name} {...link} />
+  ));
 
   return (
     <Main>
-      <div className="mb-4 flex items-center gap-2">
-        <Image src={coin.image.large} alt="" width={55} height={55} />
-        <h1 className="text-4xl font-bold text-primary">{coin.name}</h1>
-      </div>
-
       <Container>
-        <div className="p-6 text-primary">
-          <div>
-            <p className="text-lg">
-              <span className="font-bold">Country:</span>{' '}
-              {coin.country || 'N/A'}
-            </p>
-            <p className="text-lg">
-              <span className="font-bold">Trust status:</span>{' '}
-              {coin.tickers[0].trust_score || 'N/A'}
-            </p>
-            <p className="text-lg">
-              <span className="font-bold">Founded:</span>{' '}
-              {formatDateToUSFormat(coin.genesis_date) || 'N/A'}
-            </p>
+        <div className="mb-4 flex items-center gap-2 pl-5">
+          <h1 className="text-4xl font-bold text-primary">{coin.name}</h1>
+          <Image src={coin.image.large} alt="" width={55} height={55} />
+        </div>
 
-            <ul>{linksDisplay}</ul>
-            <p dangerouslySetInnerHTML={{ __html: coin.description.en }} />
+        <div className="h-0.5 w-full bg-secondary" />
+
+        <div className="space-y-4 p-6 text-primary">
+          <div>
+            <h2 className="mb-2 text-4xl">Info</h2>
+            <div className="flex flex-wrap gap-x-4">
+              <p className="text-lg">
+                <span className="font-bold">Country:</span>{' '}
+                {coin.country || 'N/A'}
+              </p>
+              <p className="text-lg">
+                <span className="font-bold">Trust status:</span>{' '}
+                {coin.tickers[0].trust_score || 'N/A'}
+              </p>
+              <p className="text-lg">
+                <span className="font-bold">Founded:</span>{' '}
+                {(coin.genesis_date &&
+                  formatDateToUSFormat(coin.genesis_date)) ||
+                  'N/A'}
+              </p>
+            </div>
           </div>
+
+          <div>
+            <h3 className=" text-4xl">Links</h3>
+            <ul className="flex flex-wrap items-center gap-x-4 gap-y-2 py-4">
+              {linksDisplay}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-4xl">Description</h3>
+            <p
+              className="h-80 overflow-y-scroll p-2 shadow-inner shadow-secondary"
+              dangerouslySetInnerHTML={{ __html: coin.description.en }}
+            />
+          </div>
+
+          <Link href="/">
+            <a className="!mt-6 inline-block w-full rounded-md bg-primary py-3 text-center text-xl font-bold text-secondary-light">
+              Go Back
+            </a>
+          </Link>
         </div>
       </Container>
     </Main>
