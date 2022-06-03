@@ -29,11 +29,11 @@ export async function getStaticProps() {
 export default function Home({ coinListData }) {
   const coinsDisplay = coinListData.map((coin) => (
     <li key={coin.id}>
-      <div>
+      <div className="flex items-center gap-2">
         <Image src={coin.image} alt={coin.name} width={15} height={15} />
 
         <Link href="/coins/[coinId]" as={`/coins/${coin.id}`}>
-          <a>{coin.name}</a>
+          <a className="text-xl">{coin.name}</a>
         </Link>
       </div>
     </li>
@@ -47,10 +47,12 @@ export default function Home({ coinListData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Crypto Stake•fish</h1>
+      <main className="flex min-h-screen w-full flex-col items-center justify-center">
+        <h1 className="mb-4 font-manrope text-3xl font-black md:text-4xl">
+          Crypto Stake•fish
+        </h1>
 
-        <div>
+        <div className="rounded-lg bg-white p-6">
           <ul>{coinsDisplay}</ul>
         </div>
       </main>

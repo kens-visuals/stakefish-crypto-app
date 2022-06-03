@@ -4,7 +4,20 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        manrope: ['Manrope', 'sans-serif'],
+      },
+      colors: {
+        primary: 'hsl(183, 100%, 15%)',
+        'primary-light': 'hsl(186, 14%, 43%)',
+        'primary-dark': 'hsl(184, 14%, 56%)',
+        secondary: 'hsl(183, 100%, 15%)',
+        'secondary-dark': 'hsl(173, 61%, 77%)',
+        'secondary-light': 'hsl(189, 41%, 97%)',
+        tertiary: 'hsl(10, 44%, 59%)',
+      },
+    },
   },
   plugins: [],
 };
