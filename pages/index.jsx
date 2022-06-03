@@ -1,8 +1,46 @@
 import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
 
-export default function Home() {
+const CoinGecko = require('coingecko-api');
+
+const CoinGeckoClient = new CoinGecko();
+
+export async function getStaticProps() {
+  // NOTE: Old way of getting data from CoinGecko
+  // const res = await fetch(
+  //   'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false'
+  // );
+  // const coinListData = await res.json();
+
+  // NOTE: New way of getting data from CoinGecko
+  const res = await CoinGeckoClient.coins.markets({
+    vs_currency: 'usd',
+    order: 'market_cap_desc',
+    per_page: 10,
+    page: 1,
+    sparkline: false,
+  });
+  const coinListData = res.data;
+
+  return { props: { coinListData } };
+}
+
+export default function Home({ coinListData }) {
+  const coinsDisplay = coinListData.map((coin) => (
+    <li key={coin.id}>
+      <div>
+        <Image src={coin.image} alt={coin.name} width={15} height={15} />
+
+        <Link href="/coins/[coinId]" as={`/coins/${coin.id}`}>
+          <a>{coin.name}</a>
+        </Link>
+      </div>
+    </li>
+  ));
+
   return (
-    <div>
+    <di>
       <Head>
         <title>Stake•fish Crypto App</title>
         <meta name="description" content="Stake•fish Crypto App" />
@@ -10,23 +48,12 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="text-3xl font-bold underline">
-          Welcome to <a href="https://nextjs.org">FishStake.js!</a>
-        </h1>
-      </main>
+        <h1>Crypto Stake•fish</h1>
 
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
-    </div>
+        <div>
+          <ul>{coinsDisplay}</ul>
+        </div>
+      </main>
+    </di>
   );
 }

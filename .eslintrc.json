@@ -19,8 +19,11 @@
   "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": ["error"],
+    "react/no-danger": "off",
     "react/prop-types": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "next/no-page-custom-fonts": "off"
   }
 }
