@@ -135,7 +135,7 @@ export default function Coin({ coin }) {
           </div>
 
           <Link href="/">
-            <a className="!mt-6 inline-block w-full rounded-md border-4 border-transparent bg-primary py-3 text-center text-xl font-bold text-secondary-light transition-all duration-300 lg:hover:border-primary lg:hover:bg-transparent lg:hover:text-primary">
+            <a className="!mt-6 inline-block w-full rounded-md border-4 border-transparent bg-primary py-3 text-center text-xl font-bold text-secondary-light shadow-xl shadow-primary-light/40 transition-all duration-300 lg:hover:translate-y-1 lg:hover:border-primary lg:hover:bg-transparent lg:hover:text-primary lg:hover:shadow-none">
               Go Back
             </a>
           </Link>
