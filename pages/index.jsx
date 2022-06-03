@@ -1,8 +1,9 @@
 import Head from 'next/head';
 
 // components
-import ListItem from './components/ListItem';
-import Container from './components/Container';
+import ListItem from '../components/ListItem';
+import Main from '../components/Main';
+import Container from '../components/Container';
 
 // CoinGecko API
 const CoinGecko = require('coingecko-api');
@@ -35,14 +36,14 @@ export default function Home({ coinListData }) {
   ));
 
   return (
-    <di>
+    <div>
       <Head>
         <title>Stake•fish Crypto App</title>
         <meta name="description" content="Stake•fish Crypto App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex min-h-screen w-full flex-col items-center justify-center py-16">
+      <Main>
         <h1 className="mb-4 font-manrope text-3xl font-black text-primary md:text-4xl">
           Crypto Stake•fish
         </h1>
@@ -52,7 +53,7 @@ export default function Home({ coinListData }) {
             {coinsDisplay}
           </ul>
         </Container>
-      </main>
-    </di>
+      </Main>
+    </div>
   );
 }

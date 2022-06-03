@@ -5,10 +5,14 @@ import Image from 'next/image';
 import SecondaryListItem from './SecondaryListItem';
 
 export default function ListItem({ coin }) {
-  const listItemNames = ['Current price:', 'Highest in 24h:', 'Lowest in 24h:'];
+  const listItemNames = [
+    { name: 'Current price:' },
+    { name: 'Highest in 24h:', isHighest: true },
+    { name: 'Lowest in 24h:', isLowest: true },
+  ];
 
-  const secondaryListItemsDisplay = listItemNames.map((name) => (
-    <SecondaryListItem key={name} coin={coin} name={name} />
+  const secondaryListItemsDisplay = listItemNames.map((info) => (
+    <SecondaryListItem key={info.name} coin={coin} info={info} />
   ));
 
   return (
@@ -27,7 +31,7 @@ export default function ListItem({ coin }) {
         </div>
       </div>
 
-      <ul className="mt-2 space-y-1 rounded-md bg-primary py-4 px-7">
+      <ul className="mt-2 space-y-1 rounded-md bg-primary py-4 px-6">
         {secondaryListItemsDisplay}
       </ul>
     </li>
