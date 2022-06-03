@@ -49,7 +49,7 @@ export default function Home({ coinListData }) {
         </h1>
 
         <Container>
-          <ul className="space-y-4 divide-y divide-secondary/30">
+          <ul className="grid space-y-4 divide-y divide-secondary/30 md:grid-cols-2 md:space-y-0 lg:grid-cols-3 lg:divide-y-0">
             {coinsDisplay}
           </ul>
         </Container>
