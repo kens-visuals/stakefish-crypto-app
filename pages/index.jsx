@@ -1,7 +1,10 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
 
+// components
+import ListItem from './components/ListItem';
+import Container from './components/Container';
+
+// CoinGecko API
 const CoinGecko = require('coingecko-api');
 
 const CoinGeckoClient = new CoinGecko();
@@ -28,15 +31,7 @@ export async function getStaticProps() {
 
 export default function Home({ coinListData }) {
   const coinsDisplay = coinListData.map((coin) => (
-    <li key={coin.id}>
-      <div className="flex items-center gap-2">
-        <Image src={coin.image} alt={coin.name} width={15} height={15} />
-
-        <Link href="/coins/[coinId]" as={`/coins/${coin.id}`}>
-          <a className="text-xl">{coin.name}</a>
-        </Link>
-      </div>
-    </li>
+    <ListItem key={coin.id} coin={coin} />
   ));
 
   return (
@@ -47,14 +42,16 @@ export default function Home({ coinListData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex min-h-screen w-full flex-col items-center justify-center">
-        <h1 className="mb-4 font-manrope text-3xl font-black md:text-4xl">
+      <main className="flex min-h-screen w-full flex-col items-center justify-center py-16">
+        <h1 className="mb-4 font-manrope text-3xl font-black text-primary md:text-4xl">
           Crypto Stake•fish
         </h1>
 
-        <div className="rounded-lg bg-white p-6">
-          <ul>{coinsDisplay}</ul>
-        </div>
+        <Container>
+          <ul className="space-y-4 divide-y divide-secondary/30">
+            {coinsDisplay}
+          </ul>
+        </Container>
       </main>
     </di>
   );
