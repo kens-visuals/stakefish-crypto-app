@@ -43,8 +43,6 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Coin({ coin }) {
-  console.log(coin);
-
   const links = [
     {
       name: 'Website',
@@ -80,12 +78,12 @@ export default function Coin({ coin }) {
           <Image src={coin.image.large} alt="" width={55} height={55} />
         </div>
 
-        <div className="mt-4 lg:mt-0">
+        <div className="mt-4 lg:mt-0 lg:px-5">
           <SecondaryList coin={coin} />
         </div>
 
         <div className="space-y-4 p-6 text-primary">
-          <div className="space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:space-x-16 lg:space-y-0">
+          <div className="space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:space-x-11 lg:space-y-0">
             <div>
               <h2 className="mb-2 text-4xl">Info</h2>
               <div className="flex flex-wrap gap-x-4">
@@ -123,7 +121,7 @@ export default function Coin({ coin }) {
           </div>
 
           <Link href="/">
-            <a className="!mt-6 inline-block w-full rounded-md bg-primary py-3 text-center text-xl font-bold text-secondary-light">
+            <a className="!mt-6 inline-block w-full rounded-md border-4 border-transparent bg-primary py-3 text-center text-xl font-bold text-secondary-light transition-all duration-300 lg:hover:border-primary lg:hover:bg-transparent lg:hover:text-primary">
               Go Back
             </a>
           </Link>

@@ -17,15 +17,13 @@ export default function SecondaryListItem({ coin, info }) {
         )}
         {info.isHighest && <ArrowSmUpIcon className="w-4 text-white lg:w-5" />}
         {info.isLowest && <ArrowSmDownIcon className="w-4 text-white lg:w-5" />}
-        <span className="font-semibold text-primary-dark lg:text-lg">
+        <span className="font-semibold text-primary-dark">
           {info.name}
         </span>{' '}
       </div>
 
       <span
-        className={`lg:text-lg ${
-          info.isHighest || info.isLowest || 'text-secondary-light'
-        }
+        className={`${info.isHighest || info.isLowest || 'text-secondary-light'}
         ${info.isHighest && 'text-secondary'}
         ${info.isLowest && 'text-tertiary'}`}
       >

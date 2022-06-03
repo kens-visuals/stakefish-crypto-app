@@ -12,7 +12,7 @@ export default function ListItem({ coin }) {
 
         <div className="flex items-center gap-2">
           <Link href="/coins/[coinId]" as={`/coins/${coin.id}`}>
-            <a className="text-xl font-bold text-primary underline md:text-2xl">
+            <a className="text-xl font-bold text-primary underline transition-all duration-300 md:text-2xl lg:hover:text-primary-dark">
               {coin.name}
             </a>
           </Link>
