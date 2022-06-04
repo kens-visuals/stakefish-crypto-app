@@ -10,7 +10,7 @@ npm run dev
 
 or check out the live site here:
 
-[@Stake•fish Crypto App](https://main--stake-fish-crypto-app.netlify.app/)
+[Stake•fish Crypto App](https://main--stake-fish-crypto-app.netlify.app/)
 
 ### The challenges
 
