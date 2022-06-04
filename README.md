@@ -1,6 +1,6 @@
 # Stake•fish Crypto App
 
-![Stake•fish logo](./assets/main-color.png)
+![Stake•fish logo](./assets/main-color.svg)
 
 ## Getting Started
 
