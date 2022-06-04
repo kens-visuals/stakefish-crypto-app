@@ -112,7 +112,7 @@ export default function Coin({ coin }) {
         </div>
 
         <div className="space-y-4 p-6 text-primary">
-          <div className="space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:space-x-11 lg:space-y-0">
+          <div className="space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:justify-between  lg:space-y-0">
             <div>
               <h3 className="mb-2 text-4xl">Info</h3>
               <div className="flex flex-wrap gap-x-4">{infoDisplay}</div>
