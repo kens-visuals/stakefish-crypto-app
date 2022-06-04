@@ -24,6 +24,7 @@ const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
 
 export async function getStaticPaths() {
+  // Get the list of first 10 coins
   const res = await CoinGeckoClient.coins.markets({
     vs_currency: 'usd',
     order: 'market_cap_desc',
@@ -43,6 +44,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  // Get the coin data, using the coin id
   const res = await CoinGeckoClient.coins.fetch(params.coinId);
   const coin = res.data;
 

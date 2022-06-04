@@ -12,6 +12,7 @@ export default function SecondaryListItem({ coin, info }) {
   return (
     <li className="flex items-center justify-between lg:gap-4">
       <div className="flex items-center justify-center gap-1">
+        {/* Check the item to put the correct icon using short circuting */}
         {info.isHighest || info.isLowest || (
           <CheckIcon className="w-4 text-white lg:w-5" />
         )}

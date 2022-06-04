@@ -11,6 +11,7 @@ const CoinGecko = require('coingecko-api');
 const CoinGeckoClient = new CoinGecko();
 
 export async function getStaticProps() {
+  // Get the list of first 10 coins
   const res = await CoinGeckoClient.coins.markets({
     vs_currency: 'usd',
     order: 'market_cap_desc',
