@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        manrope: ['Manrope', 'sans-serif'],
+        manrope: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
         primary: 'hsl(183, 100%, 15%)',
