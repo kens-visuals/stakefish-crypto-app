@@ -25,6 +25,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ coinListData }) {
+  // eslint-disable-next-line no-console
   console.log(
     `%c  ██╗███╗   ███╗    ██████╗  ██████╗ ██╗    ██╗███╗   ██╗    ████████╗ ██████╗          ██╗ ██████╗ ██╗███╗   ██╗██╗
   ██║████╗ ████║    ██╔══██╗██╔═══██╗██║    ██║████╗  ██║    ╚══██╔══╝██╔═══██╗         ██║██╔═══██╗██║████╗  ██║██║
