@@ -1,5 +1,7 @@
 # Stake•fish Crypto App
 
+![Stake•fish logo](./assets/main-color.png)
+
 ## Getting Started
 
 Run the development server:
