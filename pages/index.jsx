@@ -52,7 +52,7 @@ export default function Home({ coinListData }) {
       </Head>
 
       <Main>
-        <h1 className="mb-4 font-manrope text-3xl font-black text-primary md:text-4xl">
+        <h1 className="mb-4 font-space text-3xl font-black text-primary md:text-4xl">
           Crypto Stake•fish
         </h1>
 
