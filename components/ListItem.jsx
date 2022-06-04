@@ -5,7 +5,7 @@ import Image from 'next/image';
 import SecondaryList from './SecondaryList';
 
 // assets
-import blurPlaceholder from '../assets/main-color.png';
+import blurPlaceholder from '../assets/logomark-color.png';
 
 export default function ListItem({ coin }) {
   return (

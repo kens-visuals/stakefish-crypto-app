@@ -18,6 +18,9 @@ import SecondaryList from '../../components/SecondaryList';
 // utils
 import { formatDateToUSFormat } from '../../helpers/utils';
 
+// assets
+import blurPlaceholder from '../../assets/logomark-color.png';
+
 // CoinGecko API
 const CoinGecko = require('coingecko-api');
 
@@ -106,7 +109,14 @@ export default function Coin({ coin }) {
       <Container>
         <div className="mb-4 flex items-center gap-2 pl-5 lg:mb-0">
           <h1 className="text-4xl font-bold text-primary">{coin.name}</h1>
-          <Image src={coin.image.large} alt="" width={55} height={55} />
+          <Image
+            src={coin.image.large}
+            alt=""
+            width={55}
+            height={55}
+            priority
+            blurDataURL={blurPlaceholder}
+          />
         </div>
 
         <div className="mt-4 md:px-5 lg:mt-0">
