@@ -1,4 +1,5 @@
 {
+  "homepage": "http://kens-visuals.github.io/stakefish-crypto-app",
   "name": "stakefish-crypto-app",
   "version": "0.1.0",
   "private": true,
@@ -6,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
@@ -26,6 +29,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.11",
