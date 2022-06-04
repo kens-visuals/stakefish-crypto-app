@@ -107,7 +107,7 @@ export default function Coin({ coin }) {
   return (
     <Main>
       <Container>
-        <div className="mb-4 flex items-center gap-2 pl-5 lg:mb-0">
+        <div className="mb-4 flex animate-fade-in-1 items-center gap-2 pl-5 lg:mb-0">
           <h1 className="text-4xl font-bold text-primary">{coin.name}</h1>
           <Image
             src={coin.image.large}
@@ -124,7 +124,7 @@ export default function Coin({ coin }) {
         </div>
 
         <div className="space-y-4 p-6 text-primary">
-          <div className="space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:justify-between  lg:space-y-0">
+          <div className="animate-fade-in-2 space-y-4 lg:mb-10 lg:mt-4 lg:flex lg:items-center lg:justify-between  lg:space-y-0">
             <div>
               <h3 className="mb-2 text-4xl">Info</h3>
               <div className="flex flex-wrap gap-x-4">{infoDisplay}</div>
@@ -138,7 +138,7 @@ export default function Coin({ coin }) {
             </div>
           </div>
 
-          <div>
+          <div className="animate-fade-in-2.5">
             <h3 className="mb-4 text-4xl">Description</h3>
             <p
               className="h-80 overflow-y-scroll p-2 shadow-inner shadow-secondary"
@@ -147,7 +147,7 @@ export default function Coin({ coin }) {
           </div>
 
           <Link href="/">
-            <a className="!mt-6 inline-block w-full rounded-md border-4 border-transparent bg-primary py-3 text-center text-xl font-bold text-secondary-light shadow-xl shadow-primary-light/40 transition-all duration-300 lg:hover:translate-y-1 lg:hover:border-primary lg:hover:bg-transparent lg:hover:text-primary lg:hover:shadow-none">
+            <a className="!mt-6 inline-block w-full animate-fade-in-2.5 rounded-md border-4 border-transparent bg-primary py-3 text-center text-xl font-bold text-secondary-light shadow-xl shadow-primary-light/40 transition-all duration-300 lg:hover:translate-y-1 lg:hover:border-primary lg:hover:bg-transparent lg:hover:text-primary lg:hover:shadow-none">
               Go Back
             </a>
           </Link>

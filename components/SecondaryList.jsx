@@ -13,10 +13,8 @@ export default function SecondaryList({ coin }) {
   ));
 
   return (
-    <div>
-      <ul className="mt-2 space-y-1 rounded-sm bg-primary py-4 px-6 shadow-2xl  shadow-primary-light/50 md:rounded-lg">
-        {secondaryListItemsDisplay}
-      </ul>
-    </div>
+    <ul className="mt-2 animate-fade-1 space-y-1 rounded-sm bg-primary py-4 px-6 shadow-2xl  shadow-primary-light/50 md:rounded-lg">
+      {secondaryListItemsDisplay}
+    </ul>
   );
 }

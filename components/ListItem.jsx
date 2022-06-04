@@ -10,7 +10,7 @@ import blurPlaceholder from '../assets/logomark-color.png';
 export default function ListItem({ coin }) {
   return (
     <li className="p-2 px-6 md:px-3">
-      <div className="flex items-center gap-2">
+      <div className="flex animate-fade-in-1 items-center gap-2">
         <Image
           src={coin.image}
           alt={coin.name}
