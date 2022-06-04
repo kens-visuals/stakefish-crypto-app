@@ -16,11 +16,13 @@ export default function SecondaryListItem({ coin, info }) {
         {info.isHighest || info.isLowest || (
           <CheckIcon className="w-4 text-white lg:w-5" />
         )}
-        {info.isHighest && <ArrowSmUpIcon className="w-4 text-white lg:w-5" />}
-        {info.isLowest && <ArrowSmDownIcon className="w-4 text-white lg:w-5" />}
-        <span className="font-semibold text-primary-dark">
-          {info.name}
-        </span>{' '}
+        {info.isHighest && (
+          <ArrowSmUpIcon className="w-4 text-secondary lg:w-5" />
+        )}
+        {info.isLowest && (
+          <ArrowSmDownIcon className="w-4 text-tertiary lg:w-5" />
+        )}
+        <span className="font-semibold text-primary-dark">{info.name}</span>{' '}
       </div>
 
       <span
