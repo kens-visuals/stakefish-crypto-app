@@ -2,11 +2,15 @@
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
+
+or check out the live site here:
+
+[@Stake•fish Crypto App](https://main--stake-fish-crypto-app.netlify.app/)
 
 ### The challenges
 
